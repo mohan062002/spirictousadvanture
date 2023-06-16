@@ -24,13 +24,21 @@ app.use(express.json()); //setting middleware for json
 app.use(cookieParser()); //setting middleware for cookies
 app.use("/uploads", express.static(__dirname + "/uploads")); //setting up middileware to access images downloaded by "image-downloader"
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:tru
-  optionSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   credentials: true, //access-control-allow-credentials:tru
+//   optionSuccessStatus: 200,
+// };
 
-app.use(cors(corsOptions)); //setting middleware for cors error
+// app.use(cors(corsOptions)); //setting middleware for cors error
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://spiritusadventura.netlify.app/advanture');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Credentials', 'true'); // Set 'Access-Control-Allow-Credentials' to 'true'
+  next();
+});
+
 const { ObjectId } = require("mongodb");
 mongoose.connect(process.env.MONGO_URL); //mongo connection
 const PORT = process.env.PORT || 5000;
