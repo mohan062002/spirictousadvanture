@@ -556,7 +556,7 @@ app.post("/photos", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("listening port from 8000");
+  console.log(`listening port from 8000 ${PORT}`);
 });
 
 //& notes
