@@ -33,7 +33,7 @@ app.use("/uploads", express.static(__dirname + "/uploads")); //setting up middil
 // app.use(cors(corsOptions)); //setting middleware for cors error
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://spiritusadventura.netlify.app/advanture');
+  res.header('Access-Control-Allow-Origin', 'https://spiritusadventura.netlify.app');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Credentials', 'true'); // Set 'Access-Control-Allow-Credentials' to 'true'
   next();
