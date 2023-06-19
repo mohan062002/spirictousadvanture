@@ -167,7 +167,7 @@ app.post("/login", async (req, res) => {
         (err, token) => {
           if (err) throw err;
           res.cookie("token", token,{
-          domain: 'https://spiritusadventura.netlify.app.netlify.com',
+          domain: 'https://spiritusadventura.netlify.app',
           path: '/',
           httpOnly: true,
           secure: true, // Use 'false' if not using HTTPS in development
