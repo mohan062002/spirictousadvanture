@@ -166,7 +166,13 @@ app.post("/login", async (req, res) => {
         {},
         (err, token) => {
           if (err) throw err;
-          res.cookie("token", token).json(resultDoc);
+          res.cookie("token", token,{
+          domain: 'https://spiritusadventura.netlify.app.netlify.com',
+          path: '/',
+          httpOnly: true,
+          secure: true, // Use 'false' if not using HTTPS in development
+          sameSite: 'none' // Use 'none' if not using HTTPS in development
+        }).json(resultDoc);
         }
       );
     } else {
@@ -281,7 +287,6 @@ app.get("/profile", (req, res) => {
     res.json(null);
   }
 
-  // res.send(token);
 });
 
 app.post("/logout", (req, res) => {
