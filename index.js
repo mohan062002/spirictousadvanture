@@ -278,7 +278,7 @@ app.get("/profile", (req, res) => {
       });
     });
   } else {
-    res.json(token);
+    res.json(null);
   }
 
   // res.send(token);
