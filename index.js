@@ -167,7 +167,7 @@ app.post("/login", async (req, res) => {
         (err, token) => {
           if (err) throw err;
           res.cookie("token", token,{
-          domain: '.onrender.com',
+          domain: 'https://spirictusadvanture.onrender.com',
           path: '/',
           httpOnly: true,
           secure: true, // Use 'false' if not using HTTPS in development
