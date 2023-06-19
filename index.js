@@ -259,6 +259,7 @@ app.get("/profile", (req, res) => {
   const { token } = req.cookies;
   // should print cookies sent by the client
   console.log("token is ", token);
+
   if (token) {
     jwt.verify(token, jwtSecret, {}, async (err, user) => {
       if (err) throw err;
@@ -277,7 +278,7 @@ app.get("/profile", (req, res) => {
       });
     });
   } else {
-    res.json(null);
+    res.json(token);
   }
 
   // res.send(token);
